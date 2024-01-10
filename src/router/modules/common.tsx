@@ -6,6 +6,10 @@ const Common: RouteObject[] = [
     path: '/',
     element: <App />,
   },
+  {
+    path: '/index.html',
+    element: <App />,
+  },
 ];
 
 export default Common;

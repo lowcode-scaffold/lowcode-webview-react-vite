@@ -32,5 +32,6 @@ module.exports = {
     'import/prefer-default-export': 'off',
     'import/extensions': 'off',
     'tailwindcss/no-custom-classname': 'off',
+    'import/no-cycle': 'off',
   },
 };

@@ -69,37 +69,39 @@ export function request<T = unknown>(params: { cmd: string; data?: any; skipErro
   });
 }
 
-window.addEventListener('message', (event) => {
-  const message = event.data;
-  switch (message.cmd) {
-    // 来自vscode的回调
-    case 'vscodeCallback':
-      if (message.code === 200) {
-        (callbacks[message.cbid] || function () {})(message.data);
-      } else {
-        (errorCallbacks[message.cbid] || function () {})(message.data);
+export function init() {
+  window.addEventListener('message', (event) => {
+    const message = event.data;
+    switch (message.cmd) {
+      // 来自vscode的回调
+      case 'vscodeCallback':
+        if (message.code === 200) {
+          (callbacks[message.cbid] || function () {})(message.data);
+        } else {
+          (errorCallbacks[message.cbid] || function () {})(message.data);
+        }
+        delete callbacks[message.cbid];
+        delete errorCallbacks[message.cbid];
+        break;
+      // 来自 chatgpt chunck 的回调
+      case 'vscodeChatGPTChunkCallback':
+        if (taskHandler[message.task]) {
+          taskHandler[message.task](message.data);
+        } else {
+          // antdMessage.error(`未找到名为 ${message.task} 回调方法!`);
+        }
+        break;
+      // vscode 主动推送task
+      case 'vscodePushTask': {
+        if (taskHandler[message.task]) {
+          taskHandler[message.task](message.data);
+        } else {
+          // antdMessage.error(`未找到名为 ${message.task} 回调方法!`);
+        }
+        break;
       }
-      delete callbacks[message.cbid];
-      delete errorCallbacks[message.cbid];
-      break;
-    // 来自 chatgpt chunck 的回调
-    case 'vscodeChatGPTChunkCallback':
-      if (taskHandler[message.task]) {
-        taskHandler[message.task](message.data);
-      } else {
-        // antdMessage.error(`未找到名为 ${message.task} 回调方法!`);
-      }
-      break;
-    // vscode 主动推送task
-    case 'vscodePushTask': {
-      if (taskHandler[message.task]) {
-        taskHandler[message.task](message.data);
-      } else {
-        // antdMessage.error(`未找到名为 ${message.task} 回调方法!`);
-      }
-      break;
+      default:
+        break;
     }
-    default:
-      break;
-  }
-});
+  });
+}

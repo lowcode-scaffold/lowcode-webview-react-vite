@@ -1,10 +1,19 @@
 import { useState } from 'react';
+import { runScript } from './webview/service';
 import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
 import './App.less';
 
 function App() {
   const [count, setCount] = useState(0);
+
+  const handleRunScript = () => {
+    runScript({
+      materialPath: localStorage.getItem('materialPath') || '',
+      script: 'testScript',
+      params: '',
+    });
+  };
 
   return (
     <>
@@ -29,8 +38,11 @@ function App() {
       <div className="fw100 animate-bounce-alt animate-count-infinite animate-duration-1s text-5xl">
         UnoCSS
       </div>
-      <button className=" rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700">
-        Button
+      <button
+        onClick={handleRunScript}
+        className=" rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700"
+      >
+        执行脚本
       </button>
     </>
   );
