@@ -1,5 +1,5 @@
 module.exports = {
-  processors: [],
+  customSyntax: 'postcss-less',
   extends: [
     'stylelint-config-standard',
     'stylelint-prettier/recommended',

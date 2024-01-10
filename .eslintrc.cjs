@@ -8,8 +8,9 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'plugin:react-hooks/recommended',
     'plugin:import/typescript',
+    'plugin:tailwindcss/recommended',
   ],
-  ignorePatterns: ['dist', '.eslintrc.cjs'],
+  ignorePatterns: ['dist'],
   parserOptions: {
     parser: '@typescript-eslint/parser',
     ecmaFeatures: {
@@ -28,5 +29,8 @@ module.exports = {
     'import/no-absolute-path': 'off',
     'import/no-extraneous-dependencies': 'off',
     'react/no-unknown-property': 'off',
+    'import/prefer-default-export': 'off',
+    'import/extensions': 'off',
+    'tailwindcss/no-custom-classname': 'off',
   },
 };

@@ -25,9 +25,13 @@ function App() {
         </p>
       </div>
       <p className="read-the-docs">Click on the Vite and React logos to learn more</p>
-      <div className="text-5xl fw100 animate-bounce-alt animate-count-infinite animate-duration-1s">
+
+      <div className="fw100 animate-bounce-alt animate-count-infinite animate-duration-1s text-5xl">
         UnoCSS
       </div>
+      <button className=" rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700">
+        Button
+      </button>
     </>
   );
 }
