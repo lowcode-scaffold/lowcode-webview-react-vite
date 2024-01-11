@@ -1,17 +1,27 @@
 import { useState } from 'react';
-import { runScript } from './webview/service';
+import { getMaterialPath, runScript } from './webview/service';
 import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
 import './App.less';
 
 function App() {
   const [count, setCount] = useState(0);
+  const [scriptRes, setScriptRes] = useState('');
+  const [materialPath, setMaterialPath] = useState('');
 
   const handleRunScript = () => {
-    runScript({
+    runScript<string>({
       materialPath: localStorage.getItem('materialPath') || '',
       script: 'testScript',
       params: '',
+    }).then((res) => {
+      setScriptRes(res);
+    });
+  };
+
+  const handleGetMaterialPath = () => {
+    getMaterialPath().then((res) => {
+      setMaterialPath(res);
     });
   };
 
@@ -40,10 +50,18 @@ function App() {
       </div>
       <button
         onClick={handleRunScript}
-        className=" rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700"
+        className="mt-4 rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700"
       >
         执行脚本
       </button>
+      {scriptRes && <div className="mt-4">脚本结果：{scriptRes}</div>}
+      <button
+        onClick={handleGetMaterialPath}
+        className="mt-4 flex rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700"
+      >
+        getMaterialPath
+      </button>
+      {materialPath && <div className="mt-4">materialPath：{materialPath}</div>}
     </>
   );
 }
