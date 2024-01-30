@@ -1,14 +1,23 @@
 import { RouteObject } from 'react-router-dom';
-import App from '../../App';
+import Index from '@/pages/Index';
+import Tldraw from '@/pages/Tldraw';
 
 const Common: RouteObject[] = [
   {
     path: '/',
-    element: <App />,
+    element: <Index />,
   },
   {
     path: '/index.html',
-    element: <App />,
+    element: <Index />,
+  },
+  {
+    path: '/chat',
+    element: <Tldraw />,
+  },
+  {
+    path: '/tldraw',
+    element: <Tldraw />,
   },
 ];
 

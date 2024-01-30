@@ -20,6 +20,15 @@ module.exports = {
   plugins: ['prettier', 'react-hooks', '@typescript-eslint', 'react-refresh'],
   rules: {
     'prettier/prettier': 'error',
+    '@typescript-eslint/no-unused-vars': [
+      'error',
+      {
+        vars: 'local',
+        args: 'none',
+        varsIgnorePattern: 'usePresenter|useState|Taro',
+        caughtErrors: 'none',
+      },
+    ],
     'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
     'react/react-in-jsx-scope': 'off',
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx', '.ts', '.tsx'] }],
@@ -33,5 +42,10 @@ module.exports = {
     'import/extensions': 'off',
     'tailwindcss/no-custom-classname': 'off',
     'import/no-cycle': 'off',
+    'jsx-a11y/anchor-is-valid': 'off',
+    'jsx-a11y/click-events-have-key-events': 'off',
+    'jsx-a11y/no-static-element-interactions': 'off',
+    'arrow-body-style': 'off',
+    'react/function-component-definition': 'off',
   },
 };

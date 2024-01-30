@@ -16,3 +16,12 @@ export function getMaterialPath() {
     cmd: 'getMaterialPath',
   });
 }
+
+export function getTask() {
+  return request<{
+    task: 'route';
+    data?: unknown;
+  }>({
+    cmd: 'getTask',
+  });
+}
