@@ -11,13 +11,14 @@
 	},
 	"dependencies": {
 		"@ant-design/pro-chat": "^1.7.0",
-		"@tldraw/tldraw": "2.0.0-alpha.17",
+		"@tldraw/tldraw": "2.0.0-canary.34cfb85169e0",
 		"antd": "^5.13.3",
 		"antd-style": "^3.6.1",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
 		"react-router": "^6.21.1",
-		"react-router-dom": "^6.21.1"
+		"react-router-dom": "^6.21.1",
+		"signia-react": "^0.1.5"
 	},
 	"devDependencies": {
 		"@types/node": "^20.10.7",

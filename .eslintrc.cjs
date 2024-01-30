@@ -47,5 +47,6 @@ module.exports = {
     'jsx-a11y/no-static-element-interactions': 'off',
     'arrow-body-style': 'off',
     'react/function-component-definition': 'off',
+    'no-plusplus': 'off',
   },
 };
