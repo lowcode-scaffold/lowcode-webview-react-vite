@@ -83,8 +83,8 @@ export function init() {
         delete callbacks[message.cbid];
         delete errorCallbacks[message.cbid];
         break;
-      // 来自 chatgpt chunck 的回调
-      case 'vscodeChatGPTChunkCallback':
+      // 来自 llm chunck 的回调
+      case 'vscodeLLMChunkCallback':
         if (taskHandler[message.task]) {
           taskHandler[message.task](message.data);
         } else {

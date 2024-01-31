@@ -25,3 +25,10 @@ export function getTask() {
     cmd: 'getTask',
   });
 }
+
+export function askGemini(data: { messages: { role: 'system' | 'user'; content: string }[] }) {
+  return request<{ content: string }>({
+    cmd: 'askGemini',
+    data,
+  });
+}

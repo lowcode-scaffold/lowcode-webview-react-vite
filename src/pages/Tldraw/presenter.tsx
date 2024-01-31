@@ -1,8 +1,10 @@
 import { ChatMessage, ProChatInstance } from '@ant-design/pro-chat';
 import { useRef } from 'react';
-import { getMaterialPath, runScript } from '@/webview/service';
+import { askGemini, getMaterialPath, runScript } from '@/webview/service';
 import { useModel } from './model';
 import Service from './service';
+import { emitter } from '@/utils/emitter';
+import { LowcodeResponse } from './lib/lowcodeResponse';
 
 export const usePresenter = () => {
   const model = useModel();
@@ -29,7 +31,19 @@ export const usePresenter = () => {
     proChatRef.current?.sendMessage(`![](${data.dataUrl})${data.text || ''}`);
   };
 
-  const handleNewMessage = (message: ChatMessage) => {};
+  const handleNewMessage = (message: ChatMessage) => {
+    const response = new LowcodeResponse();
+    emitter.on('LLMChunk', (data) => {
+      response.pushData(data.chunck);
+    });
+    askGemini({
+      messages: [{ role: 'user', content: message.content as string }],
+    }).finally(() => {
+      emitter.off('LLMChunk');
+      response.close();
+    });
+    return response;
+  };
 
   return {
     model,

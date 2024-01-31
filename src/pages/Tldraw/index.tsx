@@ -4,7 +4,6 @@ import { DraggablePanel } from '@ant-design/pro-editor';
 import { usePresenter } from './presenter';
 import '@tldraw/tldraw/tldraw.css';
 import { useMakeReal } from './hooks/useMakeReal';
-import { LowcodeResponse } from './lib/lowcodeResponse';
 
 function MakeRealButton(props: {
   onClick: (data: { dataUrl: string; text?: string | undefined }) => void;
@@ -49,12 +48,7 @@ function Draw() {
                   },
                 }}
                 request={async (messages) => {
-                  console.log(messages);
-                  const mockedData: string = `这是一段模拟的流式字符串数据。本次会话传入了${messages.length}条消息`;
-
-                  const mockResponse = new LowcodeResponse(mockedData, 500);
-
-                  return mockResponse.getResponse();
+                  return presenter.handleNewMessage(messages.pop()!).getResponse();
                 }}
               />
             </div>

@@ -5,30 +5,20 @@ export class LowcodeResponse {
 
   private stream: ReadableStream<Uint8Array>;
 
-  constructor(
-    private data: string,
-    private delay: number = 300
-  ) {
+  constructor() {
     this.stream = new ReadableStream({
       start: (controller) => {
         this.controller = controller;
-        this.pushData();
       },
     });
   }
 
-  private pushData() {
-    if (this.data.length === 0) {
-      this.controller.close();
-      return;
-    }
+  public close() {
+    this.controller.close();
+  }
 
-    const chunk = this.data.slice(0, 1);
-    this.data = this.data.slice(1);
-
+  public pushData(chunk: string) {
     this.controller.enqueue(this.encoder.encode(chunk));
-
-    setTimeout(() => this.pushData(), this.delay);
   }
 
   getResponse() {
