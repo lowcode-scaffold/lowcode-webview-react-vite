@@ -1833,16 +1833,16 @@
     copy-to-clipboard "^3.3.3"
     zustand "^4.4.7"
 
-"@tldraw/editor@2.0.0-canary.34cfb85169e0":
-  version "2.0.0-canary.34cfb85169e0"
-  resolved "https://registry.npmmirror.com/@tldraw/editor/-/editor-2.0.0-canary.34cfb85169e0.tgz#756e5b784e32e0eda5247c20bb32ad7ded0c3641"
-  integrity sha512-vrvYGhrEezVnEKhVb8cydBnI0Yn2K5kb3e5zUYhaEGaVMu2o0mZFic22FjgoRrBN44XLiBynWetRoEGLlzoLEA==
+"@tldraw/editor@2.0.0-canary.92b16f63103c":
+  version "2.0.0-canary.92b16f63103c"
+  resolved "https://registry.npmmirror.com/@tldraw/editor/-/editor-2.0.0-canary.92b16f63103c.tgz#23e5848e9b494549c6688546f9c35c6cc4fb94bd"
+  integrity sha512-lOyhHNkS82zomMj6/pJsnohQ4LfjH5RwdmwfXjlvm4wax/DDInx2S1aGTaLZUJSPZkNtPKmfCHc3e7d4yiDnMw==
   dependencies:
-    "@tldraw/state" "2.0.0-canary.34cfb85169e0"
-    "@tldraw/store" "2.0.0-canary.34cfb85169e0"
-    "@tldraw/tlschema" "2.0.0-canary.34cfb85169e0"
-    "@tldraw/utils" "2.0.0-canary.34cfb85169e0"
-    "@tldraw/validate" "2.0.0-canary.34cfb85169e0"
+    "@tldraw/state" "2.0.0-canary.92b16f63103c"
+    "@tldraw/store" "2.0.0-canary.92b16f63103c"
+    "@tldraw/tlschema" "2.0.0-canary.92b16f63103c"
+    "@tldraw/utils" "2.0.0-canary.92b16f63103c"
+    "@tldraw/validate" "2.0.0-canary.92b16f63103c"
     "@types/core-js" "^2.5.5"
     "@use-gesture/react" "^10.2.27"
     classnames "^2.3.2"
@@ -1854,25 +1854,25 @@
     lodash.uniq "^4.5.0"
     nanoid "4.0.2"
 
-"@tldraw/state@2.0.0-canary.34cfb85169e0":
-  version "2.0.0-canary.34cfb85169e0"
-  resolved "https://registry.npmmirror.com/@tldraw/state/-/state-2.0.0-canary.34cfb85169e0.tgz#e722bc9c0b0ecc6a2e992ebfccf708d2b46405e4"
-  integrity sha512-SjMcKvgs3PdOO+yUM2EPf4zl0ZG9xLPk7+OCo1ohQbcMN0MoJV5K9Re17arVZWdvNMKLvLqLcOE8zhxGErGoCw==
+"@tldraw/state@2.0.0-canary.92b16f63103c":
+  version "2.0.0-canary.92b16f63103c"
+  resolved "https://registry.npmmirror.com/@tldraw/state/-/state-2.0.0-canary.92b16f63103c.tgz#8a9b0f88aa53d1280147baa762bf42718b358ae3"
+  integrity sha512-VlvjIPRhT9qtToWz+ZBX4onwVaOZ8QZX0gio44Q5EOYcfzzLcZo4HA4IBaxfMDbMFFJD5HTPTCG2P8CfUv+h3Q==
 
-"@tldraw/store@2.0.0-canary.34cfb85169e0":
-  version "2.0.0-canary.34cfb85169e0"
-  resolved "https://registry.npmmirror.com/@tldraw/store/-/store-2.0.0-canary.34cfb85169e0.tgz#72b05ef0718a8a2660b8a79576a789912824d906"
-  integrity sha512-BN2OfG5CvtSu/iErACPWXbrL6Dy5rDcOA0+fdagg8uJl54eWTqS7hnHvqfFfZuOflZF20YUAN//tRVnHGT4UZw==
+"@tldraw/store@2.0.0-canary.92b16f63103c":
+  version "2.0.0-canary.92b16f63103c"
+  resolved "https://registry.npmmirror.com/@tldraw/store/-/store-2.0.0-canary.92b16f63103c.tgz#f695483aab34979e8ae8f33c29745cc5a9dfd877"
+  integrity sha512-jm0eFrX5QODJRd0qtWmnLSXmqHtb4roNlU9RX/dYMSsHu9ePcAgxJ8JzhpABMXXcUyNV5Qnz9qqrNfrfCV6CKA==
   dependencies:
-    "@tldraw/state" "2.0.0-canary.34cfb85169e0"
-    "@tldraw/utils" "2.0.0-canary.34cfb85169e0"
+    "@tldraw/state" "2.0.0-canary.92b16f63103c"
+    "@tldraw/utils" "2.0.0-canary.92b16f63103c"
     lodash.isequal "^4.5.0"
     nanoid "4.0.2"
 
-"@tldraw/tldraw@2.0.0-canary.34cfb85169e0":
-  version "2.0.0-canary.34cfb85169e0"
-  resolved "https://registry.npmmirror.com/@tldraw/tldraw/-/tldraw-2.0.0-canary.34cfb85169e0.tgz#bc11a8f20c2c588dc0e838ee3f6ca760426295ed"
-  integrity sha512-6WMUT3fH2UROzouqew/8Jxn1oHyG/dy9bt++UlXV0R06oc55siy/cxEeCGx3fcMMQh/FHqYusyjYByFHYcg2jA==
+"@tldraw/tldraw@2.0.0-canary.92b16f63103c":
+  version "2.0.0-canary.92b16f63103c"
+  resolved "https://registry.npmmirror.com/@tldraw/tldraw/-/tldraw-2.0.0-canary.92b16f63103c.tgz#c8554516ffeba7f51c9d0758b8402848303b0033"
+  integrity sha512-+9FOxNvjwL7ltPQ2+Y614RW0+gjjAtjyVCRw6caFOPydOHw1c2Dmtx0cMUKIE+ri3YsAzWTGBvneOE5KFAAWjA==
   dependencies:
     "@radix-ui/react-alert-dialog" "^1.0.0"
     "@radix-ui/react-context-menu" "^2.1.5"
@@ -1882,35 +1882,34 @@
     "@radix-ui/react-select" "^1.2.0"
     "@radix-ui/react-slider" "^1.1.0"
     "@radix-ui/react-toast" "^1.1.1"
-    "@tldraw/editor" "2.0.0-canary.34cfb85169e0"
+    "@tldraw/editor" "2.0.0-canary.92b16f63103c"
     canvas-size "^1.2.6"
     classnames "^2.3.2"
-    downscale "^1.0.6"
     hotkeys-js "^3.11.2"
     lz-string "^1.4.4"
 
-"@tldraw/tlschema@2.0.0-canary.34cfb85169e0":
-  version "2.0.0-canary.34cfb85169e0"
-  resolved "https://registry.npmmirror.com/@tldraw/tlschema/-/tlschema-2.0.0-canary.34cfb85169e0.tgz#9ee207d0a3f511edec60d4d10f617ec00f07069e"
-  integrity sha512-FE/ix6GJSRyyzApgnWr1iH2VurV47M7mKVdj/aq5S4TAy2b6+0iV5GBL0rbDVI/06ZpTOFLTxSpenbQigPlfIQ==
+"@tldraw/tlschema@2.0.0-canary.92b16f63103c":
+  version "2.0.0-canary.92b16f63103c"
+  resolved "https://registry.npmmirror.com/@tldraw/tlschema/-/tlschema-2.0.0-canary.92b16f63103c.tgz#1e0ed1092c116d51c6aabb8ea364e0a26c477790"
+  integrity sha512-PEv1FRWn0C8MDPv+0rHepyo3ID+UUUpJ8Sb/X8cotIzMvjqYxAOk3H21p4VLuY2iPqkgEIZW2PLGjs8daV1kJw==
   dependencies:
-    "@tldraw/state" "2.0.0-canary.34cfb85169e0"
-    "@tldraw/store" "2.0.0-canary.34cfb85169e0"
-    "@tldraw/utils" "2.0.0-canary.34cfb85169e0"
-    "@tldraw/validate" "2.0.0-canary.34cfb85169e0"
+    "@tldraw/state" "2.0.0-canary.92b16f63103c"
+    "@tldraw/store" "2.0.0-canary.92b16f63103c"
+    "@tldraw/utils" "2.0.0-canary.92b16f63103c"
+    "@tldraw/validate" "2.0.0-canary.92b16f63103c"
     nanoid "4.0.2"
 
-"@tldraw/utils@2.0.0-canary.34cfb85169e0":
-  version "2.0.0-canary.34cfb85169e0"
-  resolved "https://registry.npmmirror.com/@tldraw/utils/-/utils-2.0.0-canary.34cfb85169e0.tgz#9e88b65b90be06f6680d1ba5f8c9d7a0448076eb"
-  integrity sha512-xgKKdG944PjhNgf3mx/UBzexrDKys5qrWt4W2G3318misUeYRg7VjjUQHXkmHWFEXSZ/iL019bAVlnyZdpeIvQ==
+"@tldraw/utils@2.0.0-canary.92b16f63103c":
+  version "2.0.0-canary.92b16f63103c"
+  resolved "https://registry.npmmirror.com/@tldraw/utils/-/utils-2.0.0-canary.92b16f63103c.tgz#e7a80f8d035fd63cd368fa2c8556020db91c0c01"
+  integrity sha512-dYYIq6oiP4+2OwOffKySj6XZ2hWvNRoZUwO9rJy6J2lPY50FQ9+My8T5FRtlVwGMKU3vcMR+20SEzQXI5sp4iA==
 
-"@tldraw/validate@2.0.0-canary.34cfb85169e0":
-  version "2.0.0-canary.34cfb85169e0"
-  resolved "https://registry.npmmirror.com/@tldraw/validate/-/validate-2.0.0-canary.34cfb85169e0.tgz#396e464842fb725cdb0d213c3d973daa1c2f88ac"
-  integrity sha512-iuz+qkEeUmDlqZAn/+NTonK74lzAaTenM++PaFG0NV9Da8pwh1D5EuY5e/0LxCIBTU4IkbG8PJXVI0y14INerA==
+"@tldraw/validate@2.0.0-canary.92b16f63103c":
+  version "2.0.0-canary.92b16f63103c"
+  resolved "https://registry.npmmirror.com/@tldraw/validate/-/validate-2.0.0-canary.92b16f63103c.tgz#92bf63701d04b17ae2000b83e3705d58514b1dbb"
+  integrity sha512-eRVssD8CCqEouWx6PLqlVVggPsdGGrES4gqU25qOo0VehboorwHxVptucSoGB8tZcvQKj4u0zi7Wuf1vQubLyg==
   dependencies:
-    "@tldraw/utils" "2.0.0-canary.34cfb85169e0"
+    "@tldraw/utils" "2.0.0-canary.92b16f63103c"
 
 "@types/core-js@^2.5.5":
   version "2.5.8"
@@ -3470,11 +3469,6 @@ dom-helpers@^5.0.1:
   dependencies:
     "@babel/runtime" "^7.8.7"
     csstype "^3.0.2"
-
-downscale@^1.0.6:
-  version "1.0.6"
-  resolved "https://registry.npmmirror.com/downscale/-/downscale-1.0.6.tgz#f1a1cb4d64c5831f1ba65341369131b5a73d2f2c"
-  integrity sha512-Arh9ftj+wo3CkFoT48SgT/crMyqmgZtNaaV/etjzHaUqNAaS36GS38ECURnfl7X/XvXN5uZNigGF7Vhffrm/pg==
 
 drange@^1.0.2:
   version "1.1.1"

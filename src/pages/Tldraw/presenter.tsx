@@ -1,4 +1,4 @@
-import { ProChatInstance } from '@ant-design/pro-chat';
+import { ChatMessage, ProChatInstance } from '@ant-design/pro-chat';
 import { useRef } from 'react';
 import { getMaterialPath, runScript } from '@/webview/service';
 import { useModel } from './model';
@@ -25,9 +25,11 @@ export const usePresenter = () => {
     });
   };
 
-  const hanldeMakeReal = () => {
-    proChatRef.current?.sendMessage('6666');
+  const hanldeMakeReal = (data: { dataUrl: string; text?: string | undefined }) => {
+    proChatRef.current?.sendMessage(`![](${data.dataUrl})${data.text || ''}`);
   };
+
+  const handleNewMessage = (message: ChatMessage) => {};
 
   return {
     model,
@@ -36,5 +38,6 @@ export const usePresenter = () => {
     handleGetMaterialPath,
     hanldeMakeReal,
     proChatRef,
+    handleNewMessage,
   };
 };

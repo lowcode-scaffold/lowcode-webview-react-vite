@@ -1,9 +1,9 @@
 import { Editor, getSvgAsImage } from '@tldraw/tldraw';
-import { addGridToSvg } from './addGridToSvg';
+// import { addGridToSvg } from './addGridToSvg';
 import { blobToBase64 } from './blobToBase64';
 import { getSelectionAsText } from './getSelectionAsText';
 
-export async function makeReal(editor: Editor, apiKey: string) {
+export async function makeReal(editor: Editor) {
   // Get the selected shapes (we need at least one)
   const selectedShapes = editor.getSelectedShapes();
 
@@ -16,8 +16,8 @@ export async function makeReal(editor: Editor, apiKey: string) {
   });
   if (!svg) throw Error(`Could not get the SVG.`);
   // Add the grid lines to the SVG
-  const grid = { color: 'red', size: 100, labels: true };
-  addGridToSvg(svg, grid);
+  // const grid = { color: 'red', size: 100, labels: true };
+  // addGridToSvg(svg, grid);
 
   // Turn the SVG into a DataUrl
   const IS_SAFARI = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
@@ -28,7 +28,10 @@ export async function makeReal(editor: Editor, apiKey: string) {
   });
   const dataUrl = await blobToBase64(blob!);
   const text = getSelectionAsText(editor);
-  console.log(dataUrl, text);
+  return {
+    dataUrl,
+    text,
+  };
   // downloadDataURLAsFile(dataUrl, 'tldraw.png')
 
   // Send everything to OpenAI and get some HTML back
