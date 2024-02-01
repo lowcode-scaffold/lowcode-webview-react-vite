@@ -1,9 +1,27 @@
+import { ProChat } from '@ant-design/pro-chat';
 import { usePresenter } from './presenter';
 
-// eslint-disable-next-line react/function-component-definition
 const Chat = () => {
-  // const presenter = usePresenter()
+  const presenter = usePresenter();
   // const { model } = presenter
-  return <div>react mvp</div>;
+  return (
+    <div h-screen w-screen>
+      <ProChat
+        chatRef={presenter.proChatRef}
+        helloMessage="欢迎使用，我是你的专属机器人"
+        actions={{
+          render: (defaultDoms) => [...defaultDoms],
+          flexConfig: {
+            gap: 24,
+            direction: 'horizontal',
+            justify: 'space-between',
+          },
+        }}
+        request={async (messages) => {
+          return presenter.handleNewMessage(messages.pop()!).getResponse();
+        }}
+      />
+    </div>
+  );
 };
 export default Chat;
