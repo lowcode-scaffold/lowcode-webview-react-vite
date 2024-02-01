@@ -11,10 +11,8 @@ export const taskHandler: {
     router.navigate(data.path);
   },
 
-  handleLLMChunk: (data: { sessionId: number; messageId: number; content: string }) => {
+  handleLLMChunk: (data: { content: string }) => {
     emitter.emit('LLMChunk', {
-      sessionId: data.sessionId,
-      messageId: data.messageId,
       chunck: data.content,
     });
   },

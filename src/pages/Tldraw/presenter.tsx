@@ -1,10 +1,11 @@
 import { ChatMessage, ProChatInstance } from '@ant-design/pro-chat';
 import { useRef } from 'react';
-import { askGemini, getMaterialPath, runScript } from '@/webview/service';
+import { askGemini, askChatGPT, getMaterialPath, runScript } from '@/webview/service';
 import { useModel } from './model';
 import Service from './service';
 import { emitter } from '@/utils/emitter';
 import { LowcodeResponse } from './lib/lowcodeResponse';
+import { toLLMMessage } from '@/utils/markdown';
 
 export const usePresenter = () => {
   const model = useModel();
@@ -28,7 +29,7 @@ export const usePresenter = () => {
   };
 
   const hanldeMakeReal = (data: { dataUrl: string; text?: string | undefined }) => {
-    proChatRef.current?.sendMessage(`![](${data.dataUrl})${data.text || ''}`);
+    proChatRef.current?.sendMessage(`![](${data.dataUrl})`);
   };
 
   const handleNewMessage = (message: ChatMessage) => {
@@ -36,8 +37,8 @@ export const usePresenter = () => {
     emitter.on('LLMChunk', (data) => {
       response.pushData(data.chunck);
     });
-    askGemini({
-      messages: [{ role: 'user', content: message.content as string }],
+    askChatGPT({
+      messages: toLLMMessage(message.content as string),
     }).finally(() => {
       emitter.off('LLMChunk');
       response.close();

@@ -26,9 +26,35 @@ export function getTask() {
   });
 }
 
-export function askGemini(data: { messages: { role: 'system' | 'user'; content: string }[] }) {
+export type LLMMessage = (
+  | {
+      role: 'system';
+      content: string;
+    }
+  | {
+      role: 'user';
+      content:
+        | string
+        | (
+            | {
+                type: 'image_url';
+                image_url: { url: string };
+              }
+            | { type: 'text'; text: string }
+          )[];
+    }
+)[];
+
+export function askGemini(data: { messages: LLMMessage }) {
   return request<{ content: string }>({
     cmd: 'askGemini',
+    data,
+  });
+}
+
+export function askChatGPT(data: { messages: LLMMessage }) {
+  return request<{ content: string }>({
+    cmd: 'askChatGPT',
     data,
   });
 }
