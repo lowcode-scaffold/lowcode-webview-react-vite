@@ -1,6 +1,7 @@
 import { RouteObject } from 'react-router-dom';
 import Index from '@/pages/Index';
 import Tldraw from '@/pages/Tldraw';
+import Chat from '@/pages/Chat';
 
 const Common: RouteObject[] = [
   {
@@ -13,7 +14,7 @@ const Common: RouteObject[] = [
   },
   {
     path: '/chat',
-    element: <Tldraw />,
+    element: <Chat />,
   },
   {
     path: '/tldraw',

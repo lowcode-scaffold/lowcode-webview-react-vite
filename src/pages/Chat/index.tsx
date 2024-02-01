@@ -5,7 +5,7 @@ const Chat = () => {
   const presenter = usePresenter();
   // const { model } = presenter
   return (
-    <div h-screen w-screen>
+    <div className="h-screen w-screen" style={{ backgroundColor: '#f5f5f5' }}>
       <ProChat
         chatRef={presenter.proChatRef}
         helloMessage="欢迎使用，我是你的专属机器人"
