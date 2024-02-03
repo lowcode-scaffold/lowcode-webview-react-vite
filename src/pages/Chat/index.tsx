@@ -18,7 +18,7 @@ const Chat = () => {
           },
         }}
         request={async (messages) => {
-          return presenter.handleNewMessage(messages.pop()!).getResponse();
+          return presenter.handleNewMessage(messages).getResponse();
         }}
       />
     </div>

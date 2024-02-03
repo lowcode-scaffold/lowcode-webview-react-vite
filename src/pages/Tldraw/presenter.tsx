@@ -4,7 +4,7 @@ import { askGemini, askChatGPT, getMaterialPath, runScript } from '@/webview/ser
 import { useModel } from './model';
 import Service from './service';
 import { emitter } from '@/utils/emitter';
-import { LowcodeResponse } from './lib/lowcodeResponse';
+import { LowcodeResponse } from '@/utils/lowcodeResponse';
 import { toLLMMessage } from '@/utils/markdown';
 
 export const usePresenter = () => {

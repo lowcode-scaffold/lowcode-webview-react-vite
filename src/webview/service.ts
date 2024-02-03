@@ -28,7 +28,7 @@ export function getTask() {
 
 export type LLMMessage = (
   | {
-      role: 'system';
+      role: 'system' | 'assistant';
       content: string;
     }
   | {
