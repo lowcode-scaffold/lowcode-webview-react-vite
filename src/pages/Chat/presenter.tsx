@@ -5,7 +5,7 @@ import Service from './service';
 import { LowcodeResponse } from '@/utils/lowcodeResponse';
 import { emitter } from '@/utils/emitter';
 import { askChatGPT } from '@/webview/service';
-import { toLLMMessages } from '@/utils/markdown';
+import { toChatGPTMessages } from '@/utils/llm';
 
 export const usePresenter = () => {
   const model = useModel();
@@ -18,7 +18,7 @@ export const usePresenter = () => {
       response.pushData(data.chunck);
     });
     askChatGPT({
-      messages: toLLMMessages(messages),
+      messages: toChatGPTMessages(messages),
     }).finally(() => {
       setTimeout(() => {
         emitter.off('LLMChunk');

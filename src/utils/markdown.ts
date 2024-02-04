@@ -38,6 +38,7 @@ export const toLLMMessages = (massages: ChatMessage[]): LLMMessage => {
       images.push(imageUrl);
       return ''; // 删除匹配到的图片标记
     });
+
     if (images.length > 0) {
       // llmMessages.push(
       //   ...[
