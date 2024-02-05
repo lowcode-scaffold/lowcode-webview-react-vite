@@ -24,55 +24,36 @@ function MakeRealButton(props: {
 function Draw() {
   const presenter = usePresenter();
   return (
-    <>
-      <div className="h-screen w-screen">
-        <Tldraw persistenceKey="tldraw">
-          <DraggablePanel
-            mode="float"
-            minHeight={400}
-            style={{ background: '#F5F5F5', display: 'flex', flexDirection: 'column' }}
-          >
-            <div style={{ flex: '1' }}>
-              <ProChat
-                chatRef={presenter.proChatRef}
-                helloMessage="欢迎使用，我是你的专属机器人"
-                actions={{
-                  render: (defaultDoms) => [
-                    <MakeRealButton key="user" onClick={presenter.hanldeMakeReal} />,
-                    ...defaultDoms,
-                  ],
-                  flexConfig: {
-                    gap: 24,
-                    direction: 'horizontal',
-                    justify: 'space-between',
-                  },
-                }}
-                request={async (messages) => {
-                  return presenter.handleNewMessage(messages.pop()!).getResponse();
-                }}
-              />
-            </div>
-          </DraggablePanel>
-        </Tldraw>
-      </div>
-      {/* <div className="fw100 animate-bounce-alt animate-count-infinite animate-duration-1s text-5xl">
-        UnoCSS
-      </div>
-      <button
-        onClick={handleRunScript}
-        className="mt-4 rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700"
-      >
-        执行脚本
-      </button>
-      {scriptRes && <div className="mt-4">脚本结果：{scriptRes}</div>}
-      <button
-        onClick={handleGetMaterialPath}
-        className="mt-4 flex rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700"
-      >
-        getMaterialPath
-      </button>
-      {materialPath && <div className="mt-4">materialPath：{materialPath}</div>} */}
-    </>
+    <div className="h-screen w-screen">
+      <Tldraw persistenceKey="tldraw">
+        <DraggablePanel
+          mode="float"
+          minHeight={400}
+          style={{ background: '#F5F5F5', display: 'flex', flexDirection: 'column' }}
+        >
+          <div style={{ flex: '1' }}>
+            <ProChat
+              chatRef={presenter.proChatRef}
+              helloMessage="欢迎使用，我是你的专属机器人"
+              actions={{
+                render: (defaultDoms) => [
+                  <MakeRealButton key="user" onClick={presenter.hanldeMakeReal} />,
+                  ...defaultDoms,
+                ],
+                flexConfig: {
+                  gap: 24,
+                  direction: 'horizontal',
+                  justify: 'space-between',
+                },
+              }}
+              request={async (messages) => {
+                return presenter.handleNewMessage(messages).getResponse();
+              }}
+            />
+          </div>
+        </DraggablePanel>
+      </Tldraw>
+    </div>
   );
 }
 

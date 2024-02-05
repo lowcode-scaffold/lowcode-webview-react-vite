@@ -5,7 +5,7 @@ import { useModel } from './model';
 import Service from './service';
 import { emitter } from '@/utils/emitter';
 import { LowcodeResponse } from '@/utils/lowcodeResponse';
-import { toLLMMessage } from '@/utils/markdown';
+import { toGeminiMakeRealMessages } from '@/utils/llm';
 
 export const usePresenter = () => {
   const model = useModel();
@@ -32,13 +32,13 @@ export const usePresenter = () => {
     proChatRef.current?.sendMessage(`![](${data.dataUrl})`);
   };
 
-  const handleNewMessage = (message: ChatMessage) => {
+  const handleNewMessage = (messages: ChatMessage[]) => {
     const response = new LowcodeResponse();
     emitter.on('LLMChunk', (data) => {
       response.pushData(data.chunck);
     });
-    askChatGPT({
-      messages: toLLMMessage(message.content as string),
+    askGemini({
+      messages: toGeminiMakeRealMessages(messages),
     }).finally(() => {
       emitter.off('LLMChunk');
       response.close();
