@@ -19,7 +19,7 @@ export function getMaterialPath() {
 
 export function getTask() {
   return request<{
-    task: 'route';
+    task: string;
     data?: unknown;
   }>({
     cmd: 'getTask',
@@ -55,6 +55,13 @@ export function askGemini(data: { messages: LLMMessage }) {
 export function askChatGPT(data: { messages: LLMMessage }) {
   return request<{ content: string }>({
     cmd: 'askChatGPT',
+    data,
+  });
+}
+
+export function askLLM(data: { messages: LLMMessage; llm?: 'gemini' | 'geminiProxy' }) {
+  return request<{ content: string }>({
+    cmd: 'askLLM',
     data,
   });
 }

@@ -16,4 +16,12 @@ export const taskHandler: {
       chunck: data.content,
     });
   },
+  askLLM: (data: string) => {
+    if (document.location.pathname === '/index.html' || document.location.pathname === '/') {
+      localStorage.setItem('askLLM', data);
+      router.navigate('/chat');
+    } else {
+      emitter.emit('askLLM', data);
+    }
+  },
 };

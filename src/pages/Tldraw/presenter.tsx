@@ -1,6 +1,6 @@
 import { ChatMessage, ProChatInstance } from '@ant-design/pro-chat';
 import { useRef } from 'react';
-import { askGemini, askChatGPT, getMaterialPath, runScript } from '@/webview/service';
+import { askGemini, getMaterialPath, runScript } from '@/webview/service';
 import { useModel } from './model';
 import Service from './service';
 import { emitter } from '@/utils/emitter';
