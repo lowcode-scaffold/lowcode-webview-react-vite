@@ -59,7 +59,7 @@ export function askChatGPT(data: { messages: LLMMessage }) {
   });
 }
 
-export function askLLM(data: { messages: LLMMessage; llm?: 'gemini' | 'geminiProxy' }) {
+export function askLLM(data: { messages: LLMMessage; llm?: 'gemini' | 'geminiProxy' | string }) {
   return request<{ content: string }>({
     cmd: 'askLLM',
     data,

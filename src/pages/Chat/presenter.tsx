@@ -34,6 +34,7 @@ export const usePresenter = () => {
     });
     askLLM({
       messages: toChatGPTMessages(messages),
+      llm: localStorage.getItem('llm') || undefined,
     }).finally(() => {
       emitter.off('LLMChunk');
       response.close();
