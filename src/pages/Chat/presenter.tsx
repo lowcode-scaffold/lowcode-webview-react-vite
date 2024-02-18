@@ -14,17 +14,8 @@ export const usePresenter = () => {
 
   useEffect(() => {
     let initPrompt = localStorage.getItem('askLLM');
-    let askPrompt = '';
-    emitter.on('askLLM', (data) => {
-      askPrompt = data;
-      if (initPrompt && initPrompt === data) {
-        return;
-      }
-      console.log(1);
-      // proChatRef.current?.sendMessage(data);
-    });
+    const askPrompt = '';
     if (initPrompt && initPrompt !== askPrompt) {
-      console.log(2);
       proChatRef.current?.sendMessage(initPrompt);
     }
     localStorage.removeItem('askLLM');
@@ -44,10 +35,8 @@ export const usePresenter = () => {
     askLLM({
       messages: toChatGPTMessages(messages),
     }).finally(() => {
-      setTimeout(() => {
-        emitter.off('LLMChunk');
-        response.close();
-      }, 1000);
+      emitter.off('LLMChunk');
+      response.close();
     });
     return response;
   };
