@@ -14,6 +14,10 @@ export const usePresenter = () => {
 
   useEffect(() => {
     let initPrompt = localStorage.getItem('askLLM');
+    emitter.on('askLLM', (content) => {
+      proChatRef.current?.clearMessage();
+      proChatRef.current?.sendMessage(content);
+    });
     const askPrompt = '';
     if (initPrompt && initPrompt !== askPrompt) {
       proChatRef.current?.sendMessage(initPrompt);
