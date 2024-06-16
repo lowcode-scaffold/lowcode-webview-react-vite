@@ -65,3 +65,23 @@ export function askLLM(data: { messages: LLMMessage; llm?: 'gemini' | 'geminiPro
     data,
   });
 }
+
+export function getDynamicForm() {
+  return request<{ schema: object; scripts: { method: string; remark: string }[] }>({
+    cmd: 'getDynamicForm',
+  });
+}
+
+export function runDynamicFormScript(data: { method: string; params: string; model: object }) {
+  return request<{
+    /** 立即更新 model */
+    updateModelImmediately: boolean;
+    /** 仅更新参数 */
+    onlyUpdateParams: boolean;
+    params?: string;
+    model: object;
+  }>({
+    cmd: 'runDynamicFormScript',
+    data,
+  });
+}

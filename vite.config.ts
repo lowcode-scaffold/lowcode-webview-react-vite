@@ -19,16 +19,25 @@ export default defineConfig({
     },
   },
   build: {
-    cssCodeSplit: true,
-    // assetsInlineLimit: 1024 * 4 * 4,
-    chunkSizeWarningLimit: 1500, // chunk 大小警告的限制（以 kbs 为单位）
+    cssCodeSplit: false,
     rollupOptions: {
-      // 指定生成静态资源的存放路径
       output: {
-        chunkFileNames: 'js/[name].js',
-        entryFileNames: 'js/[name].js',
-        assetFileNames: '[ext]/[name].[ext]',
+        manualChunks: () => 'vscode.index.js',
+        // chunkFileNames: 'index.js',
+        entryFileNames: 'vscode.index.js',
+        assetFileNames: () => 'vscode.index.css',
       },
+    },
+  },
+  experimental: {
+    renderBuiltUrl(
+      filename: string,
+      type: { hostId: string; hostType: 'js' | 'css' | 'html'; type: 'public' | 'asset' }
+    ) {
+      if (process.env.bucket) {
+        return `https://${process.env.bucket}.oss-cn-beijing.aliyuncs.com/${filename}`;
+      }
+      return `./${filename}`;
     },
   },
 });

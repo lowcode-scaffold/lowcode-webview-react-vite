@@ -48,5 +48,7 @@ module.exports = {
     'arrow-body-style': 'off',
     'react/function-component-definition': 'off',
     'no-plusplus': 'off',
+    'no-param-reassign': 'off',
+    'class-methods-use-this': 'off',
   },
 };

@@ -4,6 +4,10 @@ import { getTask } from '@/webview/service';
 import { taskHandler } from '@/webview/handleTask';
 
 function Index() {
+  const element = document.getElementById('StartLoading');
+  if (element) {
+    element.parentNode?.removeChild(element);
+  }
   useEffect(() => {
     getTask().then((res) => {
       if (res && res.task) {
