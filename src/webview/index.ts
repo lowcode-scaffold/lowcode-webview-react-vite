@@ -2,6 +2,7 @@
 /* eslint-disable global-require */
 /* eslint-disable import/no-dynamic-require */
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { notification, message as antdMessage } from 'antd';
 import { taskHandler } from './handleTask';
 
 const callbacks: { [propName: string]: (data: any) => void } = {};
@@ -12,11 +13,10 @@ if (process.env.NODE_ENV !== 'production') {
     : {
         postMessage: (message: { cmd: string; data: any; cbid: string }) => {
           setTimeout(() => {
-            // notification.success({
-            //   message: 'call vscode',
-            //   description: `cmd: ${message.cmd}`,
-            // });
-            (callbacks[message.cbid] || function () {})(require(`./mock/${message.cmd}`).default);
+            notification.success({
+              message: 'call vscode',
+              description: `cmd: ${message.cmd}`,
+            });
           }, 1000);
         },
       };
@@ -78,7 +78,12 @@ export function init() {
         if (message.code === 200) {
           (callbacks[message.cbid] || function () {})(message.data);
         } else {
-          (errorCallbacks[message.cbid] || function () {})(message.data);
+          (
+            errorCallbacks[message.cbid] ||
+            function (data) {
+              antdMessage.error(data);
+            }
+          )(message.data);
         }
         delete callbacks[message.cbid];
         delete errorCallbacks[message.cbid];
